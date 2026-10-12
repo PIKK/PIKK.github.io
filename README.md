@@ -48,7 +48,26 @@ npm run build
 推送到 `main` 分支后，GitHub Actions 会自动构建并发布到 GitHub Pages，
 配置见 `.github/workflows/deploy.yml`。
 
-首次部署需要在仓库的 **Settings → Pages** 里把 Source 设为 **GitHub Actions**。
+本仓库已把 Pages 的 Source 设为 **GitHub Actions**（Settings → Pages）。
+如果换了仓库，记得在新仓库里做同样设置，否则发布步骤会失败。
+
+线上地址：<https://pikk.github.io/>
+
+## 日常流程
+
+```bash
+# 1. 在 posts/ 里写一篇新的 Markdown
+# 2. 本地预览确认效果
+npm run dev
+
+# 3. 提交并推送，CI 会自动构建发布
+git add -A
+git commit -m "新增文章：xxx"
+git push
+```
+
+构建失败时，在仓库的 **Actions** 标签页可以看到具体日志；
+`npm run check` 会校验死链和缺失资源，CI 里也会执行这一步。
 
 ## 站点配置
 
